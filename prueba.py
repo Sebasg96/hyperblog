@@ -9,14 +9,18 @@ from collections  import Counter
     
 print(is_armstrong_number(153))'''
 
-dice_1 = [2,4,4,4,3]
+dice_1 = [2,4,4,4,2]
 
-sort_dice = Counter(dice_1).most_common(1)
 
 def four_of_a_kind(dice):
-    sort_dice = Counter(dice_1).most_common(1)
+    sort_dice = Counter(dice).most_common(1)
     return sort_dice[0][0]*4 if sort_dice[0][1] >= 4 else 0
 
 
-print(four_of_a_kind(dice_1))
 
+def full_house(dice):
+    sort_dice = Counter(dice).values()
+    return sum(dice) if sorted(sort_dice, reverse=True) == [3,2] else 0
+
+
+print (full_house(dice_1))
